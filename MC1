@@ -71,7 +71,7 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": true,
-          "serverName": "Amoo.MEdicALdREAM.iR",
+          "serverName": "AmOo.meDICaldrEam.Ir",
           "alpn": [
             "h2",
             "http/1.1"
@@ -80,9 +80,9 @@
           "show": false
         },
         "wsSettings": {
-          "path": "/",
+          "path": "/?ed=2048",
           "headers": {
-            "Host": "Amoo.MEdicALdREAM.iR"
+            "Host": "AmOo.meDICaldrEam.Ir"
           }
         },
         "sockopt": {
