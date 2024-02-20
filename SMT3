@@ -55,7 +55,7 @@
             "port": 443,
             "users": [
               {
-                "id": "22eef160-e090-45aa-a1e5-3b371ba775a3",
+                "id": "09ee71b4-725b-4e38-8592-579248d3f55f",
                 "alterId": 0,
                 "email": "t@t.tt",
                 "security": "auto",
@@ -71,7 +71,7 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": true,
-          "serverName": "Amoo.MEdicALdREAM.iR",
+          "serverName": "amoO.meDICaLsIGNS.lINK",
           "alpn": [
             "h2",
             "http/1.1"
@@ -80,9 +80,9 @@
           "show": false
         },
         "wsSettings": {
-          "path": "/",
+          "path": "/?ed=2048",
           "headers": {
-            "Host": "Amoo.MEdicALdREAM.iR"
+            "Host": "amoO.meDICaLsIGNS.lINK"
           }
         },
         "sockopt": {
