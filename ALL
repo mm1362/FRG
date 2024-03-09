@@ -1,59 +1,58 @@
 {
     "dns": {
-        "disableFallback": true,
+        "hosts": {
+            "geosite:category-ads-all": "127.0.0.1",
+            "geosite:category-ads-ir": "127.0.0.1",
+            "domain:googleapis.cn": "googleapis.com"
+        },
         "servers": [
-            {
-                "address": "https://94.140.14.14/dns-query",
-                "domains": [],
-                "queryStrategy": ""
-            },
+            "https://94.140.14.14/dns-query",
             {
                 "address": "8.8.8.8",
                 "domains": [
-                    "domain:.ir",
                     "geosite:private",
-                    "geosite:category-ir"
+                    "geosite:category-ir",
+                    "domain:.ir"
                 ],
-                "queryStrategy": ""
+                "expectIPs": [
+                    "geoip:cn"
+                ],
+                "port": 53
             }
-        ],
-        "tag": "dns"
+        ]
     },
+    "fakedns": [
+        {
+            "ipPool": "198.18.0.0/15",
+            "poolSize": 10000
+        }
+    ],
     "inbounds": [
         {
-            "listen": "127.0.0.1",
-            "port": 2080,
+            "port": 10808,
             "protocol": "socks",
             "settings": {
-                "udp": true
+                "auth": "noauth",
+                "udp": true,
+                "userLevel": 8
             },
             "sniffing": {
                 "destOverride": [
                     "http",
                     "tls",
-                    "quic"
+                    "fakedns"
                 ],
-                "enabled": true,
-                "metadataOnly": false,
-                "routeOnly": true
+                "enabled": true
             },
-            "tag": "socks-in"
+            "tag": "socks"
         },
         {
-            "listen": "127.0.0.1",
-            "port": 2081,
+            "port": 10809,
             "protocol": "http",
-            "sniffing": {
-                "destOverride": [
-                    "http",
-                    "tls",
-                    "quic"
-                ],
-                "enabled": true,
-                "metadataOnly": false,
-                "routeOnly": true
+            "settings": {
+                "userLevel": 8
             },
-            "tag": "http-in"
+            "tag": "http"
         }
     ],
     "log": {
@@ -90,14 +89,14 @@
                     ],
                     "fingerprint": "chrome",
                     "publicKey": "",
-                    "serverName": "bpB.RaYANBala.IR",
+                    "serverName": "bpb.raYanBaLa.IR",
                     "shortId": "",
                     "show": false,
                     "spiderX": ""
                 },
                 "wsSettings": {
                     "headers": {
-                        "Host": "BPB.rAyAnbaLa.ir"
+                        "Host": "BpB.rAyanBaLA.Ir"
                     },
                     "path": "/?ed=2048"
                 },
@@ -163,7 +162,7 @@
             "settings": {
                 "vnext": [
                     {
-                        "address": "185.162.230.15",
+                        "address": "104.24.136.13",
                         "port": 443,
                         "users": [
                             {
@@ -286,14 +285,14 @@
                     ],
                     "fingerprint": "chrome",
                     "publicKey": "",
-                    "serverName": "bpb.rayAnbala.iR",
+                    "serverName": "BPb.raYANBaLA.IR",
                     "shortId": "",
                     "show": false,
                     "spiderX": ""
                 },
                 "wsSettings": {
                     "headers": {
-                        "Host": "bPB.raYANBALa.Ir"
+                        "Host": "bPb.RAYanBAlA.iR"
                     },
                     "path": "/?ed=2048"
                 },
@@ -310,7 +309,7 @@
             "settings": {
                 "vnext": [
                     {
-                        "address": "104.24.136.13",
+                        "address": "185.162.230.15",
                         "port": 443,
                         "users": [
                             {
@@ -359,7 +358,7 @@
             "settings": {
                 "vnext": [
                     {
-                        "address": "188.114.96.4",
+                        "address": "159.246.55.13",
                         "port": 443,
                         "users": [
                             {
@@ -482,14 +481,14 @@
                     ],
                     "fingerprint": "chrome",
                     "publicKey": "",
-                    "serverName": "Bpb.rAYANBaLA.IR",
+                    "serverName": "bPb.rayANBALa.iR",
                     "shortId": "",
                     "show": false,
                     "spiderX": ""
                 },
                 "wsSettings": {
                     "headers": {
-                        "Host": "bpb.RAYAnBAla.ir"
+                        "Host": "bPb.rayANbala.iR"
                     },
                     "path": "/?ed=2048"
                 },
@@ -506,56 +505,7 @@
             "settings": {
                 "vnext": [
                     {
-                        "address": "43.153.80.208",
-                        "port": 443,
-                        "users": [
-                            {
-                                "encryption": "none",
-                                "flow": "",
-                                "id": "f2004126-5865-4980-b6dd-2211dbaadf42",
-                                "level": 8,
-                                "security": "auto"
-                            }
-                        ]
-                    }
-                ]
-            },
-            "streamSettings": {
-                "network": "ws",
-                "security": "tls",
-                "tlsSettings": {
-                    "allowInsecure": true,
-                    "alpn": [
-                        "h2",
-                        "http/1.1"
-                    ],
-                    "fingerprint": "chrome",
-                    "publicKey": "",
-                    "serverName": "BPb.rAyaN1.woRKERS.Dev",
-                    "shortId": "",
-                    "show": false,
-                    "spiderX": ""
-                },
-                "wsSettings": {
-                    "headers": {
-                        "Host": "BPb.rAyaN1.woRKERS.Dev"
-                    },
-                    "path": "/?ed=2048"
-                },
-                "sockopt": {
-                    "dialerProxy": "fragment",
-                    "tcpKeepAliveIdle": 100,
-                    "tcpNoDelay": true
-                }
-            },
-            "tag": "proxy_10"
-        },
-        {
-            "protocol": "vless",
-            "settings": {
-                "vnext": [
-                    {
-                        "address": "159.246.55.13",
+                        "address": "23.227.60.11",
                         "port": 443,
                         "users": [
                             {
@@ -597,7 +547,7 @@
                     "tcpNoDelay": true
                 }
             },
-            "tag": "proxy_11"
+            "tag": "proxy_10"
         },
         {
             "protocol": "vless",
@@ -605,6 +555,55 @@
                 "vnext": [
                     {
                         "address": "192.0.54.11",
+                        "port": 443,
+                        "users": [
+                            {
+                                "encryption": "none",
+                                "flow": "",
+                                "id": "f2004126-5865-4980-b6dd-2211dbaadf42",
+                                "level": 8,
+                                "security": "auto"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "ws",
+                "security": "tls",
+                "tlsSettings": {
+                    "allowInsecure": true,
+                    "alpn": [
+                        "h2",
+                        "http/1.1"
+                    ],
+                    "fingerprint": "chrome",
+                    "publicKey": "",
+                    "serverName": "BPb.rAyaN1.woRKERS.Dev",
+                    "shortId": "",
+                    "show": false,
+                    "spiderX": ""
+                },
+                "wsSettings": {
+                    "headers": {
+                        "Host": "BPb.rAyaN1.woRKERS.Dev"
+                    },
+                    "path": "/?ed=2048"
+                },
+                "sockopt": {
+                    "dialerProxy": "fragment",
+                    "tcpKeepAliveIdle": 100,
+                    "tcpNoDelay": true
+                }
+            },
+            "tag": "proxy_11"
+        },
+        {
+            "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "43.153.80.208",
                         "port": 443,
                         "users": [
                             {
@@ -653,7 +652,7 @@
             "settings": {
                 "vnext": [
                     {
-                        "address": "23.227.60.11",
+                        "address": "195.137.167.13",
                         "port": 443,
                         "users": [
                             {
@@ -678,14 +677,14 @@
                     ],
                     "fingerprint": "chrome",
                     "publicKey": "",
-                    "serverName": "BpB.RayaNBAla.iR",
+                    "serverName": "Bpb.raYaNBAla.Ir",
                     "shortId": "",
                     "show": false,
                     "spiderX": ""
                 },
                 "wsSettings": {
                     "headers": {
-                        "Host": "BPB.RAyAnBAla.iR"
+                        "Host": "BpB.RAYAnBalA.iR"
                     },
                     "path": "/?ed=2048"
                 },
@@ -702,7 +701,7 @@
             "settings": {
                 "vnext": [
                     {
-                        "address": "195.137.167.13",
+                        "address": "66.81.247.104",
                         "port": 443,
                         "users": [
                             {
@@ -800,55 +799,6 @@
             "settings": {
                 "vnext": [
                     {
-                        "address": "66.81.247.104",
-                        "port": 443,
-                        "users": [
-                            {
-                                "encryption": "none",
-                                "flow": "",
-                                "id": "f2004126-5865-4980-b6dd-2211dbaadf42",
-                                "level": 8,
-                                "security": "auto"
-                            }
-                        ]
-                    }
-                ]
-            },
-            "streamSettings": {
-                "network": "ws",
-                "security": "tls",
-                "tlsSettings": {
-                    "allowInsecure": true,
-                    "alpn": [
-                        "h2",
-                        "http/1.1"
-                    ],
-                    "fingerprint": "chrome",
-                    "publicKey": "",
-                    "serverName": "BPb.rAyaN1.woRKERS.Dev",
-                    "shortId": "",
-                    "show": false,
-                    "spiderX": ""
-                },
-                "wsSettings": {
-                    "headers": {
-                        "Host": "BPb.rAyaN1.woRKERS.Dev"
-                    },
-                    "path": "/?ed=2048"
-                },
-                "sockopt": {
-                    "dialerProxy": "fragment",
-                    "tcpKeepAliveIdle": 100,
-                    "tcpNoDelay": true
-                }
-            },
-            "tag": "proxy_16"
-        },
-        {
-            "protocol": "vless",
-            "settings": {
-                "vnext": [
-                    {
                         "address": "160.153.0.11",
                         "port": 443,
                         "users": [
@@ -874,14 +824,63 @@
                     ],
                     "fingerprint": "chrome",
                     "publicKey": "",
-                    "serverName": "BPb.raYanbAlA.Ir",
+                    "serverName": "bPb.rAyanbalA.IR",
                     "shortId": "",
                     "show": false,
                     "spiderX": ""
                 },
                 "wsSettings": {
                     "headers": {
-                        "Host": "bpB.RaYANbalA.IR"
+                        "Host": "bpb.rAyAnbAla.Ir"
+                    },
+                    "path": "/?ed=2048"
+                },
+                "sockopt": {
+                    "dialerProxy": "fragment",
+                    "tcpKeepAliveIdle": 100,
+                    "tcpNoDelay": true
+                }
+            },
+            "tag": "proxy_16"
+        },
+        {
+            "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "108.162.193.11",
+                        "port": 443,
+                        "users": [
+                            {
+                                "encryption": "none",
+                                "flow": "",
+                                "id": "f2004126-5865-4980-b6dd-2211dbaadf42",
+                                "level": 8,
+                                "security": "auto"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "ws",
+                "security": "tls",
+                "tlsSettings": {
+                    "allowInsecure": true,
+                    "alpn": [
+                        "h2",
+                        "http/1.1"
+                    ],
+                    "fingerprint": "chrome",
+                    "publicKey": "",
+                    "serverName": "Bpb.MeDICALDream.Ir",
+                    "shortId": "",
+                    "show": false,
+                    "spiderX": ""
+                },
+                "wsSettings": {
+                    "headers": {
+                        "Host": "Bpb.MeDICALDream.Ir"
                     },
                     "path": "/?ed=2048"
                 },
@@ -947,7 +946,7 @@
             "settings": {
                 "vnext": [
                     {
-                        "address": "108.162.193.11",
+                        "address": "104.17.159.9",
                         "port": 443,
                         "users": [
                             {
@@ -996,7 +995,7 @@
             "settings": {
                 "vnext": [
                     {
-                        "address": "104.16.30.229",
+                        "address": "104.21.55.215",
                         "port": 443,
                         "users": [
                             {
@@ -1021,14 +1020,14 @@
                     ],
                     "fingerprint": "chrome",
                     "publicKey": "",
-                    "serverName": "Bpb.raYANBala.IR",
+                    "serverName": "BpB.raYaNbala.ir",
                     "shortId": "",
                     "show": false,
                     "spiderX": ""
                 },
                 "wsSettings": {
                     "headers": {
-                        "Host": "bpb.rAYANBALA.ir"
+                        "Host": "bPb.RaYanbaLA.ir"
                     },
                     "path": "/?ed=2048"
                 },
@@ -1045,7 +1044,7 @@
             "settings": {
                 "vnext": [
                     {
-                        "address": "212.183.88.9",
+                        "address": "104.16.30.229",
                         "port": 443,
                         "users": [
                             {
@@ -1094,105 +1093,7 @@
             "settings": {
                 "vnext": [
                     {
-                        "address": "104.17.159.9",
-                        "port": 443,
-                        "users": [
-                            {
-                                "encryption": "none",
-                                "flow": "",
-                                "id": "f2004126-5865-4980-b6dd-2211dbaadf42",
-                                "level": 8,
-                                "security": "auto"
-                            }
-                        ]
-                    }
-                ]
-            },
-            "streamSettings": {
-                "network": "ws",
-                "security": "tls",
-                "tlsSettings": {
-                    "allowInsecure": true,
-                    "alpn": [
-                        "h2",
-                        "http/1.1"
-                    ],
-                    "fingerprint": "chrome",
-                    "publicKey": "",
-                    "serverName": "BpB.RaYANbAla.IR",
-                    "shortId": "",
-                    "show": false,
-                    "spiderX": ""
-                },
-                "wsSettings": {
-                    "headers": {
-                        "Host": "bpB.RaYAnBALA.ir"
-                    },
-                    "path": "/?ed=2048"
-                },
-                "sockopt": {
-                    "dialerProxy": "fragment",
-                    "tcpKeepAliveIdle": 100,
-                    "tcpNoDelay": true
-                }
-            },
-            "tag": "proxy_22"
-        },
-        {
-            "protocol": "vless",
-            "settings": {
-                "vnext": [
-                    {
-                        "address": "104.21.55.215",
-                        "port": 443,
-                        "users": [
-                            {
-                                "encryption": "none",
-                                "flow": "",
-                                "id": "f2004126-5865-4980-b6dd-2211dbaadf42",
-                                "level": 8,
-                                "security": "auto"
-                            }
-                        ]
-                    }
-                ]
-            },
-            "streamSettings": {
-                "network": "ws",
-                "security": "tls",
-                "tlsSettings": {
-                    "allowInsecure": true,
-                    "alpn": [
-                        "h2",
-                        "http/1.1"
-                    ],
-                    "fingerprint": "chrome",
-                    "publicKey": "",
-                    "serverName": "Bpb.MeDICALDream.Ir",
-                    "shortId": "",
-                    "show": false,
-                    "spiderX": ""
-                },
-                "wsSettings": {
-                    "headers": {
-                        "Host": "Bpb.MeDICALDream.Ir"
-                    },
-                    "path": "/?ed=2048"
-                },
-                "sockopt": {
-                    "dialerProxy": "fragment",
-                    "tcpKeepAliveIdle": 100,
-                    "tcpNoDelay": true
-                }
-            },
-            "tag": "proxy_23"
-        },
-        {
-            "protocol": "vless",
-            "settings": {
-                "vnext": [
-                    {
-                        "address": "198.41.196.8",
+                        "address": "212.183.88.9",
                         "port": 443,
                         "users": [
                             {
@@ -1234,14 +1135,14 @@
                     "tcpNoDelay": true
                 }
             },
-            "tag": "proxy_24"
+            "tag": "proxy_22"
         },
         {
             "protocol": "vless",
             "settings": {
                 "vnext": [
                     {
-                        "address": "69.84.182.7",
+                        "address": "198.41.196.8",
                         "port": 443,
                         "users": [
                             {
@@ -1283,14 +1184,14 @@
                     "tcpNoDelay": true
                 }
             },
-            "tag": "proxy_25"
+            "tag": "proxy_23"
         },
         {
             "protocol": "vless",
             "settings": {
                 "vnext": [
                     {
-                        "address": "172.67.183.5",
+                        "address": "69.84.182.7",
                         "port": 443,
                         "users": [
                             {
@@ -1315,14 +1216,14 @@
                     ],
                     "fingerprint": "chrome",
                     "publicKey": "",
-                    "serverName": "bpb.rAyanbALa.IR",
+                    "serverName": "BpB.RAyanbala.Ir",
                     "shortId": "",
                     "show": false,
                     "spiderX": ""
                 },
                 "wsSettings": {
                     "headers": {
-                        "Host": "bPb.RAYanbaLA.iR"
+                        "Host": "bPb.RaYanBalA.Ir"
                     },
                     "path": "/?ed=2048"
                 },
@@ -1332,14 +1233,14 @@
                     "tcpNoDelay": true
                 }
             },
-            "tag": "proxy_26"
+            "tag": "proxy_24"
         },
         {
             "protocol": "vless",
             "settings": {
                 "vnext": [
                     {
-                        "address": "194.36.55.6",
+                        "address": "172.67.183.5",
                         "port": 443,
                         "users": [
                             {
@@ -1381,14 +1282,14 @@
                     "tcpNoDelay": true
                 }
             },
-            "tag": "proxy_27"
+            "tag": "proxy_25"
         },
         {
             "protocol": "vless",
             "settings": {
                 "vnext": [
                     {
-                        "address": "147.185.161.5",
+                        "address": "194.36.55.6",
                         "port": 443,
                         "users": [
                             {
@@ -1430,16 +1331,115 @@
                     "tcpNoDelay": true
                 }
             },
+            "tag": "proxy_26"
+        },
+        {
+            "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "147.185.161.5",
+                        "port": 443,
+                        "users": [
+                            {
+                                "encryption": "none",
+                                "flow": "",
+                                "id": "f2004126-5865-4980-b6dd-2211dbaadf42",
+                                "level": 8,
+                                "security": "auto"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "ws",
+                "security": "tls",
+                "tlsSettings": {
+                    "allowInsecure": true,
+                    "alpn": [
+                        "h2",
+                        "http/1.1"
+                    ],
+                    "fingerprint": "chrome",
+                    "publicKey": "",
+                    "serverName": "bpB.msNEGar.EU.org",
+                    "shortId": "",
+                    "show": false,
+                    "spiderX": ""
+                },
+                "wsSettings": {
+                    "headers": {
+                        "Host": "bpB.msNEGar.EU.org"
+                    },
+                    "path": "/?ed=2048"
+                },
+                "sockopt": {
+                    "dialerProxy": "fragment",
+                    "tcpKeepAliveIdle": 100,
+                    "tcpNoDelay": true
+                }
+            },
+            "tag": "proxy_27"
+        },
+        {
+            "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "188.114.96.4",
+                        "port": 443,
+                        "users": [
+                            {
+                                "encryption": "none",
+                                "flow": "",
+                                "id": "f2004126-5865-4980-b6dd-2211dbaadf42",
+                                "level": 8,
+                                "security": "auto"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "ws",
+                "security": "tls",
+                "tlsSettings": {
+                    "allowInsecure": true,
+                    "alpn": [
+                        "h2",
+                        "http/1.1"
+                    ],
+                    "fingerprint": "chrome",
+                    "publicKey": "",
+                    "serverName": "BPB.RayaNbAlA.iR",
+                    "shortId": "",
+                    "show": false,
+                    "spiderX": ""
+                },
+                "wsSettings": {
+                    "headers": {
+                        "Host": "Bpb.rayANbaLA.ir"
+                    },
+                    "path": "/?ed=2048"
+                },
+                "sockopt": {
+                    "dialerProxy": "fragment",
+                    "tcpKeepAliveIdle": 100,
+                    "tcpNoDelay": true
+                }
+            },
             "tag": "proxy_28"
         },
         {
+            "tag": "fragment",
             "protocol": "freedom",
             "settings": {
                 "domainStrategy": "AsIs",
                 "fragment": {
+                    "packets": "tlshello",
                     "length": "100-200",
-                    "interval": "1-2",
-                    "packets": "tlshello"
+                    "interval": "1-2"
                 }
             },
             "streamSettings": {
@@ -1447,42 +1447,37 @@
                     "tcpKeepAliveIdle": 100,
                     "TcpNoDelay": true
                 }
-            },
-            "tag": "fragment"
+            }
         },
         {
-            "domainStrategy": "",
             "protocol": "freedom",
-            "tag": "bypass"
+            "settings": {
+                "domainStrategy": "UseIP"
+            },
+            "tag": "direct"
         },
         {
             "protocol": "blackhole",
-            "tag": "block"
-        },
-        {
-            "protocol": "dns",
-            "proxySettings": {
-                "tag": "proxy",
-                "transportLayer": true
-            },
             "settings": {
-                "address": "8.8.8.8",
-                "network": "tcp",
-                "port": 53,
-                "userLevel": 1
+                "response": {
+                    "type": "http"
+                }
             },
-            "tag": "dns-out"
+            "tag": "block"
         }
     ],
     "policy": {
         "levels": {
-            "1": {
-                "connIdle": 30
+            "8": {
+                "connIdle": 300,
+                "downlinkOnly": 1,
+                "handshake": 4,
+                "uplinkOnly": 1
             }
         },
         "system": {
-            "statsOutboundDownlink": true,
-            "statsOutboundUplink": true
+            "statsOutboundUplink": true,
+            "statsOutboundDownlink": true
         }
     },
     "routing": {
@@ -1492,32 +1487,8 @@
                 "ip": [
                     "8.8.8.8"
                 ],
-                "outboundTag": "bypass",
-                "type": "field"
-            },
-            {
-                "inboundTag": [
-                    "socks-in",
-                    "http-in"
-                ],
-                "outboundTag": "dns-out",
+                "outboundTag": "direct",
                 "port": "53",
-                "type": "field"
-            },
-            {
-                "domain": [
-                    "geosite:category-ads-all",
-                    "geosite:category-ads-ir"
-                ],
-                "outboundTag": "block",
-                "type": "field"
-            },
-            {
-                "ip": [
-                    "geoip:ir",
-                    "geoip:private"
-                ],
-                "outboundTag": "bypass",
                 "type": "field"
             },
             {
@@ -1526,7 +1497,23 @@
                     "geosite:category-ir",
                     "domain:.ir"
                 ],
-                "outboundTag": "bypass",
+                "outboundTag": "direct",
+                "type": "field"
+            },
+            {
+                "ip": [
+                    "geoip:private",
+                    "geoip:ir"
+                ],
+                "outboundTag": "direct",
+                "type": "field"
+            },
+            {
+                "domain": [
+                    "geosite:category-ads-all",
+                    "geosite:category-ads-ir"
+                ],
+                "outboundTag": "block",
                 "type": "field"
             },
             {
